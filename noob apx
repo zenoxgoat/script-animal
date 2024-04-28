@@ -176,4 +176,56 @@ end
 end)
    end,
 })
+
+local Button = MainTab:CreateButton({
+   Name = "Kill All Boos",
+   Callback = function()
+   while true do
+    local args = {
+        [1] = "damage",
+        [2] = {
+            ["EnemyHumanoid"] = workspace.NPC.CENTAUR.Humanoid
+        }
+    }
+
+    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
+    
+    wait(1) -- Attendre une seconde entre chaque appel pour éviter de surcharger le serveur
+
+    local args = {
+        [1] = "damage",
+        [2] = {
+            ["EnemyHumanoid"] = workspace.NPC.DragonGiraffe.Humanoid
+        }
+    }
+
+    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
+    
+    wait(1)
+
+    local args = {
+        [1] = "damage",
+        [2] = {
+            ["EnemyHumanoid"] = workspace.NPC.LavaGorilla.Humanoid
+        }
+    }
+
+    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
+    
+    wait(1)
+
+    local args = {
+        [1] = "damage",
+        [2] = {
+            ["EnemyHumanoid"] = workspace.NPC.Griffin.Humanoid
+        }
+    }
+
+    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
+    
+    wait(1)
+end
+
+   end,
+})
 Rayfield:LoadConfiguration()
