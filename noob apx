@@ -61,7 +61,7 @@ local Button = MainTab:CreateButton({
     while true do
         game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
        
-        wait(1)
+        wait(0.6)
     end
 
    end,
