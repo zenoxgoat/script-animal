@@ -110,8 +110,40 @@ end
 })
 
 local Button = TitleTab:CreateButton({
-   Name = "kill all fire(not working)",
+   Name = "kill all fire",
    Callback = function()
+while true do
+    local localPlayer = game:GetService("Players").LocalPlayer
+
+    local players = game:GetService("Players"):GetPlayers()
+
+    for i, player in ipairs(players) do
+        if player == localPlayer then
+            table.remove(players, i)
+            break
+        end
+    end
+
+    local joueur_choisi
+    if #players > 0 then
+        joueur_choisi = players[math.random(1, #players)]
+    else
+        warn("Il n'y a aucun autre joueur en ligne.")
+        return
+    end
+
+    local args = {
+        [1] = "damage",
+        [2] = {
+            ["EnemyHumanoid"] = joueur_choisi.Character.Humanoid
+        }
+    }
+
+    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
+
+    wait(1)
+end
+
    end,
 })
 
