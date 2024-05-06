@@ -49,7 +49,7 @@ local Button = MainTab:CreateButton({
 
     game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(unpack(args2))
 
-    wait(0.5)
+    wait(0.1)
 end
 
    end,
