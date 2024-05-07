@@ -269,11 +269,13 @@ local args = {
     [1] = "bayad"
 }
 
-game:GetService("ReplicatedStorage"):WaitForChild("ValentinesEvent"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
-
+for i = 1, 100000000000000000000000000000000 do
+    game:GetService("ReplicatedStorage"):WaitForChild("ValentinesEvent"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    wait(0.1) -- Attendre une seconde avant de continuer à la prochaine itération
 end
 
-   end,
 
+   end,
+})
 
 Rayfield:LoadConfiguration()
