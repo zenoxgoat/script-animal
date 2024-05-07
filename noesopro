@@ -264,16 +264,16 @@ end
 local Button = MainTab:CreateButton({
    Name = "reset coins🪙",
    Callback = function()
-while true do
-local args = {
+ while true do
+        local args = {
     [1] = "bayad"
-}
+    }
 
-for i = 1, 100000000000000000000000000000000 do
     game:GetService("ReplicatedStorage"):WaitForChild("ValentinesEvent"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
-    wait(0.1) -- Attendre une seconde avant de continuer à la prochaine itération
-end
 
+       
+        wait(0.6)
+    end
 
    end,
 })
