@@ -1,4 +1,4 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
    Name = "🤓animal simulator script like APX lol🤓",
@@ -260,4 +260,18 @@ end
 
    end,
 })
+
+local Button = MainTab:CreateButton({
+   Name = "reset coins🪙",
+   Callback = function()
+while true do
+local args = {
+    [1] = "bayad"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("ValentinesEvent"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+
+end
+
+   end,
 Rayfield:LoadConfiguration()
