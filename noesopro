@@ -32,7 +32,24 @@ local MainTab = Window:CreateTab("EXP", nil) -- Title, Image
 local Button = MainTab:CreateButton({
    Name = "hit 5k dummy + fire",
    Callback = function()
-  while true do
+  -- Coordonnées de destination
+local destination = Vector3.new(-81.71819305419922, 594.0464477539062, 814.4378662109375)
+
+-- Fonction pour téléporter le joueur à la destination
+local function teleportToDestination()
+    -- Vérifier si le joueur existe
+    local player = game.Players.LocalPlayer
+    if player then
+        -- Téléporter le joueur à la destination
+        player.Character:SetPrimaryPartCFrame(CFrame.new(destination))
+    else
+        print("Le joueur n'est pas trouvé.")
+    end
+end
+
+-- Appel de la fonction pour téléporter le joueur
+teleportToDestination()
+while true do
     local args1 = {
         [1] = "damage",
         [2] = {
