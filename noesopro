@@ -264,7 +264,7 @@ local ToggleBossKilling = MainTab:CreateToggle({
     Flag = "kill_all_bosses_loop", -- Assurez-vous que chaque élément a un Flag différent si vous utilisez la sauvegarde de configuration
     Callback = function(value)
         toggleBossKilling()
-    end,
+   end,
 })
 
 -- Démarrer la fonction pour tuer les boss
