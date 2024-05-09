@@ -217,55 +217,55 @@ end)
    end,
 })
 
-local Button = MainTab:CreateButton({
-   Name = "Kill All Boss",
-   Callback = function()
-   while true do
-    local args = {
-        [1] = "damage",
-        [2] = {
-            ["EnemyHumanoid"] = workspace.NPC.CENTAUR.Humanoid
-        }
-    }
+local bossKillEnabled = false -- Variable pour suivre l'état de la fonction pour tuer les boss
 
-    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
-    
-    wait(2) -- Attendre une seconde entre chaque appel pour éviter de surcharger le serveur
+local function killAllBosses()
+    while true do
+        wait()
+        if bossKillEnabled then
+            -- Tuer le boss DragonGiraffe
+            pcall(function()
+                game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(workspace.NPC.DragonGiraffe.Humanoid)
+            end)
 
-    local args = {
-        [1] = "damage",
-        [2] = {
-            ["EnemyHumanoid"] = workspace.NPC.DragonGiraffe.Humanoid
-        }
-    }
+            -- Tuer le boss Griffin
+            pcall(function()
+                game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(workspace.NPC.Griffin.Humanoid)
+            end)
 
-    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
-    
-    wait(2)
+            -- Tuer le boss LavaGorilla
+            pcall(function()
+                game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(workspace.NPC.LavaGorilla.Humanoid)
+            end)
 
-    local args = {
-        [1] = "damage",
-        [2] = {
-            ["EnemyHumanoid"] = workspace.NPC.LavaGorilla.Humanoid
-        }
-    }
-
-    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
-    
-    wait(2)
-
-    local args = {
-        [1] = "damage",
-        [2] = {
-            ["EnemyHumanoid"] = workspace.NPC.Griffin.Humanoid
-        }
-    }
-
-    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
-    
-    wait(2)
+            -- Tuer le boss CENTAUR
+            pcall(function()
+                game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(workspace.NPC.CENTAUR.Humanoid)
+            end)
+        end
+    end
 end
 
+local function toggleBossKilling()
+    bossKillEnabled = not bossKillEnabled -- Inverser l'état de la fonction pour tuer les boss
+    if bossKillEnabled then
+        print("Fonction pour tuer les boss activée.")
+    else
+        print("Fonction pour tuer les boss désactivée.")
+    end
+end
+
+local ToggleBossKilling = MainTab:CreateToggle({
+    Name = "kill all boss 🐎 🦒 🐈 🔥",
+    CurrentValue = false,
+    Flag = "kill_all_bosses_loop", -- Assurez-vous que chaque élément a un Flag différent si vous utilisez la sauvegarde de configuration
+    Callback = function(value)
+        toggleBossKilling()
+    end,
+})
+
+-- Démarrer la fonction pour tuer les boss
+killAllBosses()
    end,
 })
 
