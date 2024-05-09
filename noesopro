@@ -30,7 +30,7 @@ local MainTab = Window:CreateTab("EXP", nil) -- Title, Image
     local MainSection = MainTab:CreateSection("Farm")
 
 local Button = MainTab:CreateButton({
-   Name = "hit 5k dummy + fire",
+   Name = "hit 5k dummy",
    Callback = function()
   -- Coordonnées de destination
 local destination = Vector3.new(-81.71819305419922, 594.0464477539062, 814.4378662109375)
@@ -50,15 +50,6 @@ end
 -- Appel de la fonction pour téléporter le joueur
 teleportToDestination()
 while true do
-    local args1 = {
-        [1] = "damage",
-        [2] = {
-            ["EnemyHumanoid"] = workspace.MAP:FindFirstChild("5k_dummies").Dummy2.Humanoid
-        }
-    }
-
-    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args1))
-
     local args2 = {
         [1] = workspace.MAP:FindFirstChild("5k_dummies").Dummy2.Humanoid,
         [2] = 4
@@ -291,6 +282,20 @@ game:GetService("ReplicatedStorage"):WaitForChild("ValentinesEvent"):WaitForChil
         wait(0.1)
     end
 
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "fire dummy 5k",
+   Callback = function()
+    local args1 = {
+        [1] = "damage",
+        [2] = {
+            ["EnemyHumanoid"] = workspace.MAP:FindFirstChild("5k_dummies").Dummy2.Humanoid
+        }
+    }
+
+    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args1))
    end,
 })
 Rayfield:LoadConfiguration()
