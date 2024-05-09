@@ -217,6 +217,9 @@ end)
    end,
 })
 
+local Button = MainTab:CreateButton({
+   Name = "Anti Afk",
+   Callback = function()
 local bossKillEnabled = false -- Variable pour suivre l'état de la fonction pour tuer les boss
 
 local function killAllBosses()
