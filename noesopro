@@ -294,7 +294,5 @@ local ToggleBossKilling = MainTab:CreateToggle({
 
 -- Démarrer la fonction pour tuer les boss
 killAllBosses()
-   end,
-})
 
 Rayfield:LoadConfiguration()
