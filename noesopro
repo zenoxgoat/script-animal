@@ -60,6 +60,7 @@ while true do
     game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args1))
 
 wait(0.1)
+
     local args2 = {
         [1] = workspace.MAP:FindFirstChild("5k_dummies").Dummy2.Humanoid,
         [2] = 4
