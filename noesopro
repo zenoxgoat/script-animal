@@ -217,9 +217,6 @@ end)
    end,
 })
 
-local Button = MainTab:CreateButton({
-   Name = "Anti Afk",
-   Callback = function()
 local bossKillEnabled = false -- Variable pour suivre l'état de la fonction pour tuer les boss
 
 local function killAllBosses()
@@ -259,11 +256,12 @@ local function toggleBossKilling()
 end
 
 local ToggleBossKilling = MainTab:CreateToggle({
-    Name = "kill all boss 🐎 🦒 🐈 🔥",
+    Name = "kill all boss",
     CurrentValue = false,
     Flag = "kill_all_bosses_loop", -- Assurez-vous que chaque élément a un Flag différent si vous utilisez la sauvegarde de configuration
     Callback = function(value)
         toggleBossKilling()
+
    end,
 })
 
