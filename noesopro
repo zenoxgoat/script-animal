@@ -227,7 +227,7 @@ end)
 })
 
 local Button = MainTab:CreateButton({
-   Name = "Kill All Boos",
+   Name = "Kill All Boss",
    Callback = function()
    while true do
     local args = {
@@ -239,7 +239,7 @@ local Button = MainTab:CreateButton({
 
     game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
     
-    wait(1) -- Attendre une seconde entre chaque appel pour éviter de surcharger le serveur
+    wait(2) -- Attendre une seconde entre chaque appel pour éviter de surcharger le serveur
 
     local args = {
         [1] = "damage",
@@ -250,7 +250,7 @@ local Button = MainTab:CreateButton({
 
     game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
     
-    wait(1)
+    wait(2)
 
     local args = {
         [1] = "damage",
@@ -261,7 +261,7 @@ local Button = MainTab:CreateButton({
 
     game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
     
-    wait(1)
+    wait(2)
 
     local args = {
         [1] = "damage",
@@ -272,7 +272,7 @@ local Button = MainTab:CreateButton({
 
     game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
     
-    wait(1)
+    wait(2)
 end
 
    end,
