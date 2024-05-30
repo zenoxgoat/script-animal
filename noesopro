@@ -295,5 +295,302 @@ local ToggleBossKilling = MainTab:CreateToggle({
 -- Démarrer la fonction pour tuer les boss
 killAllBosses()
 
-local Tab = Window:CreateTab("ez", nil) -- Title, Image
+ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "🤓animal simulator script like APX lol🤓",
+   LoadingTitle = "zen hub",
+   LoadingSubtitle = "by zenox",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "animalsimhub"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "animal simulator | key",
+      Subtitle = "Key System",
+      Note = "No method of obtaining the key is provided",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("EXP", nil) -- Title, Image
+    local MainSection = MainTab:CreateSection("Farm")
+
+local Button = MainTab:CreateButton({
+   Name = "hit 5k dummy",
+   Callback = function()
+  -- Coordonnées de destination
+local destination = Vector3.new(-81.71819305419922, 594.0464477539062, 814.4378662109375)
+
+-- Fonction pour téléporter le joueur à la destination
+local function teleportToDestination()
+    -- Vérifier si le joueur existe
+    local player = game.Players.LocalPlayer
+    if player then
+        -- Téléporter le joueur à la destination
+        player.Character:SetPrimaryPartCFrame(CFrame.new(destination))
+    else
+        print("Le joueur n'est pas trouvé.")
+    end
+end
+
+-- Appel de la fonction pour téléporter le joueur
+teleportToDestination()
+while true do
+    local args1 = {
+        [1] = "damage",
+        [2] = {
+            ["EnemyHumanoid"] = workspace.MAP:FindFirstChild("5k_dummies").Dummy2.Humanoid
+        }
+    }
+
+    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args1))
+
+wait(0.1)
+
+    local args2 = {
+        [1] = workspace.MAP:FindFirstChild("5k_dummies").Dummy2.Humanoid,
+        [2] = 4
+    }
+
+    game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(unpack(args2))
+
+    wait(0.1)
+end
+
+   end,
+})
+
+
+local Button = MainTab:CreateButton({
+   Name = "coins🪙",
+   Callback = function()
+    while true do
+        game:GetService("ReplicatedStorage").Events.CoinEvent:FireServer()
+       
+        wait(0.6)
+    end
+
+   end,
+})
+
+local TitleTab = Window:CreateTab("Title Farm", nil) -- Title, Image
+
+
+local Button = TitleTab:CreateButton({
+   Name = "reset + fire farm kill",
+   Callback = function()
+   while true do
+    local localPlayer = game:GetService("Players").LocalPlayer -- Récupérer le joueur local
+
+    -- Vérifier si le joueur local a un personnage avec un Humanoid
+    if localPlayer.Character and localPlayer.Character:FindFirstChild("Humanoid") then
+        local args = {
+            [1] = "damage",
+            [2] = {
+                ["EnemyHumanoid"] = localPlayer.Character.Humanoid
+            }
+        }
+        -- Envoyer l'événement au serveur
+        game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
+    end
+
+    -- Appeler la fonction pour mettre la vie à 0
+    local function setCharacterHealthToZero()
+        local player = game.Players.LocalPlayer
+        local character = player.Character
+
+        -- Vérifie si le joueur et son personnage existent
+        if character and character:FindFirstChild("Humanoid") then
+            character.Humanoid.Health = 0
+        end
+    end
+
+    -- Appeler la fonction pour mettre la vie à 0
+    setCharacterHealthToZero()
+
+    -- Attente de 0,1 seconde avant la prochaine exécution
+    wait(6.1)
+end
+   end,
+})
+
+local Button = TitleTab:CreateButton({
+   Name = "kill all fire",
+   Callback = function()
+while true do
+    local localPlayer = game:GetService("Players").LocalPlayer
+
+    local players = game:GetService("Players"):GetPlayers()
+
+    for i, player in ipairs(players) do
+        if player == localPlayer then
+            table.remove(players, i)
+            break
+        end
+    end
+
+    local joueur_choisi
+    if #players > 0 then
+        joueur_choisi = players[math.random(1, #players)]
+    else
+        warn("Il n'y a aucun autre joueur en ligne.")
+        return
+    end
+
+    local args = {
+        [1] = "damage",
+        [2] = {
+            ["EnemyHumanoid"] = joueur_choisi.Character.Humanoid
+        }
+    }
+
+    game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
+
+    wait(1)
+end
+
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Anti Afk",
+   Callback = function()
+   wait(0.5)local ba=Instance.new("ScreenGui")
+local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
+local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
+ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
+ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
+ca.Position=UDim2.new(0.698610067,0,0.098096624,0)ca.Size=UDim2.new(0,370,0,52)
+ca.Font=Enum.Font.SourceSansSemibold;ca.Text="Anti Afk"ca.TextColor3=Color3.new(0,1,1)
+ca.TextSize=22;da.Parent=ca
+da.BackgroundColor3=Color3.new(0.196078,0.196078,0.196078)da.Position=UDim2.new(0,0,1.0192306,0)
+da.Size=UDim2.new(0,370,0,107)_b.Parent=da
+_b.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)_b.Position=UDim2.new(0,0,0.800455689,0)
+_b.Size=UDim2.new(0,370,0,21)_b.Font=Enum.Font.Arial;_b.Text="Made by Headshot#5868"
+_b.TextColor3=Color3.new(0,1,1)_b.TextSize=20;ab.Parent=da
+ab.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ab.Position=UDim2.new(0,0,0.158377,0)
+ab.Size=UDim2.new(0,370,0,44)ab.Font=Enum.Font.ArialBold;ab.Text="Status: Active"
+ab.TextColor3=Color3.new(0,1,1)ab.TextSize=20;local bb=game:service'VirtualUser'
+game:service'Players'.LocalPlayer.Idled:connect(function()
+bb:CaptureController()bb:ClickButton2(Vector2.new())
+ab.Text="Roblox kicked you but we didnt let them!"wait(2)ab.Text="Status : Active"end)
+   end,
+})
+
+local PVPTab = Window:CreateTab("PVP", nil) -- Title, Image
+
+local Slider = PVPTab:CreateSlider({
+   Name = "Hitbox Expender",
+   Range = {0, 100},
+   Increment = 1,
+   Suffix = "Hitbox",
+   CurrentValue = 14,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        --[[
+    WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+-- leave a like pls
+
+
+_G.HeadSize = (Value)
+_G.Disabled = true
+ 
+game:GetService('RunService').RenderStepped:connect(function()
+if _G.Disabled then
+for i,v in next, game:GetService('Players'):GetPlayers() do
+if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+pcall(function()
+v.Character.HumanoidRootPart.Size = Vector3.new(_G.HeadSize,_G.HeadSize,_G.HeadSize)
+v.Character.HumanoidRootPart.Transparency = 0.7
+v.Character.HumanoidRootPart.BrickColor = BrickColor.new("Really blue")
+v.Character.HumanoidRootPart.Material = "Neon"
+v.Character.HumanoidRootPart.CanCollide = false
+end)
+end
+end
+end
+end)
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "reset coins🪙",
+   Callback = function()
+    while true do
+        local args = {
+    [1] = "bayad"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("ValentinesEvent"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+       
+        wait(0.1)
+    end
+
+   end,
+})
+
+local bossKillEnabled = false -- Variable pour suivre l'état de la fonction pour tuer les boss
+
+local function killAllBosses()
+    while true do
+        wait()
+        if bossKillEnabled then
+            -- Tuer le boss DragonGiraffe
+            pcall(function()
+                game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(workspace.NPC.DragonGiraffe.Humanoid)
+            end)
+
+            -- Tuer le boss Griffin
+            pcall(function()
+                game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(workspace.NPC.Griffin.Humanoid)
+            end)
+
+            -- Tuer le boss LavaGorilla
+            pcall(function()
+                game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(workspace.NPC.LavaGorilla.Humanoid)
+            end)
+
+            -- Tuer le boss CENTAUR
+            pcall(function()
+                game:GetService("ReplicatedStorage").jdskhfsIIIllliiIIIdchgdIiIIIlIlIli:FireServer(workspace.NPC.CENTAUR.Humanoid)
+            end)
+        end
+    end
+end
+
+local function toggleBossKilling()
+    bossKillEnabled = not bossKillEnabled -- Inverser l'état de la fonction pour tuer les boss
+    if bossKillEnabled then
+        print("Fonction pour tuer les boss activée.")
+    else
+        print("Fonction pour tuer les boss désactivée.")
+    end
+end
+
+local ToggleBossKilling = MainTab:CreateToggle({
+    Name = "kill all boss",
+    CurrentValue = false,
+    Flag = "kill_all_bosses_loop", -- Assurez-vous que chaque élément a un Flag différent si vous utilisez la sauvegarde de configuration
+    Callback = function(value)
+        toggleBossKilling()
+
+   end,
+})
+
+-- Démarrer la fonction pour tuer les boss
+killAllBosses()
+
+local HitTab = Window:CreateTab("hit", nil) -- Title, Image
 Rayfield:LoadConfiguration()
