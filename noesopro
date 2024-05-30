@@ -591,6 +591,4 @@ local ToggleBossKilling = MainTab:CreateToggle({
 
 -- Démarrer la fonction pour tuer les boss
 killAllBosses()
-
-local HitTab = Window:CreateTab("hit", nil) -- Title, Image
 Rayfield:LoadConfiguration()
