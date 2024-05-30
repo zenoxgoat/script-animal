@@ -296,7 +296,7 @@ local ToggleBossKilling = MainTab:CreateToggle({
 killAllBosses()
 
 
-local Button = MainTab:CreateButton({
+local Button = TitleTab:CreateButton({
    Name = "ONLY HIT",
    Callback = function()
 while true do
