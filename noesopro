@@ -75,6 +75,26 @@ end
 })
 
 local Button = MainTab:CreateButton({
+   Name = "Only Hit",
+   Callback = function()
+-- LocalScript or Script depending on where you want to run it
+
+while true do
+    local args = {
+        [1] = workspace:WaitForChild("MAP"):WaitForChild("5k_dummies"):WaitForChild("Dummy2"):WaitForChild("Humanoid"),
+        [2] = 2
+    }
+
+    game:GetService("ReplicatedStorage"):WaitForChild("jdskhfsIIIllliiIIIdchgdIiIIIlIlIli"):FireServer(unpack(args))
+
+    -- Add a short wait to prevent potential performance issues or throttling
+    wait() -- Adjust the wait time as needed
+end
+
+   end,
+})
+
+local Button = MainTab:CreateButton({
    Name = "coins🪙",
    Callback = function()
     while true do
@@ -296,25 +316,4 @@ local ToggleBossKilling = MainTab:CreateToggle({
 killAllBosses()
 
 
-local Toggle = MainTab:CreateToggle({
-   Name = "Toggle Example",
-   CurrentValue = false,
-   Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-   Callback = function(Value)
--- LocalScript or Script depending on where you want to run it
-
-while true do
-    local args = {
-        [1] = workspace:WaitForChild("MAP"):WaitForChild("5k_dummies"):WaitForChild("Dummy2"):WaitForChild("Humanoid"),
-        [2] = 2
-    }
-
-    game:GetService("ReplicatedStorage"):WaitForChild("jdskhfsIIIllliiIIIdchgdIiIIIlIlIli"):FireServer(unpack(args))
-
-    -- Add a short wait to prevent potential performance issues or throttling
-    wait(0.1) -- Adjust the wait time as needed
-end
-
-   end,
-})
 Rayfield:LoadConfiguration()
