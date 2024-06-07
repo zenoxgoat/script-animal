@@ -540,7 +540,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("ValentinesEvent"):WaitForChil
 
    end,
 })
-local ToggleDamageLoop = MainTab:CreateToggle({
+local ToggleDamageLoop = PVPTab:CreateToggle({
     Name = "kill all fireball 🔥",
     CurrentValue = false,
     Flag = "damageaction_loop", -- Assurez-vous que chaque élément a un Flag différent si vous utilisez la sauvegarde de configuration
