@@ -540,6 +540,38 @@ game:GetService("ReplicatedStorage"):WaitForChild("ValentinesEvent"):WaitForChil
 
    end,
 })
+local ToggleDamageLoop = MainTab:CreateToggle({
+    Name = "kill all fireball 🔥",
+    CurrentValue = false,
+    Flag = "damageaction_loop", -- Assurez-vous que chaque élément a un Flag différent si vous utilisez la sauvegarde de configuration
+    Callback = function(value)
+        if value then
+            print("Boucle d'actions de dégâts activée")
+            while true do
+                local localPlayer = game:GetService("Players").LocalPlayer
+                local players = game:GetService("Players"):GetPlayers()
+
+                for , player in ipairs(players) do
+                    if player ~= localPlayer then
+                        local args = {
+                            [1] = "damage",
+                            [2] = {
+                                ["EnemyHumanoid"] = player.Character.Humanoid
+                            }
+                        }
+
+                        game:GetService("ReplicatedStorage").SkillsInRS.RemoteEvent:FireServer(unpack(args))
+                    end
+                end
+
+                -- Optionnel: Ajoutez une pause entre chaque itération pour éviter de surcharger le serveur.
+                wait() -- Attendez 1 seconde avant de continuer à la prochaine itération
+            end
+        else
+            print("Boucle d'actions de dégâts désactivée.")
+        end
+    end,
+})
 
 local bossKillEnabled = false -- Variable pour suivre l'état de la fonction pour tuer les boss
 
